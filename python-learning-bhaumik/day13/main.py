@@ -26,8 +26,10 @@ class TextRequest(BaseModel):
     text: str
 
 # 4️⃣ Load Hugging Face sentiment model
-sentiment_analyzer = pipeline("sentiment-analysis")
-
+sentiment_analyzer = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english"
+)
 # 5️⃣ Routes
 @app.get("/")
 def home():
